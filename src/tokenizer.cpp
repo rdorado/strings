@@ -1,17 +1,11 @@
-#include<string>
-#include<vector>
+#include "tokenizer.hpp"
 
-namespace libnlp
-{
-    
-   class Tokenizer{
+#include<boost/algorithm/string.hpp>
 
-      public:
-	 
-	 void tokenize(std::vector<std::string> results, string text){
-	      results.push_back("Hello");
-	 }     
-    
-    };
- 	
+namespace libnlp{
+
+   void Tokenizer::tokenize(std::vector<std::string>& results, std::string text){
+      boost::split(results, text, [](char c){return c == ' ';});	        
+   }
+
 }
